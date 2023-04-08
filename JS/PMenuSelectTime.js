@@ -14,10 +14,10 @@ app.listen(1037, () => {
 });
 
 var connection = mysql.createConnection({
-    host: 'ollie.whitehat.kr',
+    host: 'hostname',
     user: 'admin',
-    database: 'ollie',
-    password: 'a20192020',
+    database: 'databasename',
+    password: 'password',
     port: 3306
 });
 
