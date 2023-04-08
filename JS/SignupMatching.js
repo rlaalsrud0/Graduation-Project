@@ -257,9 +257,6 @@ app.get('/ssaidpass', function(req, res){
             if(err) console.log(err);
             else{
                 console.log('ssaid 로 구분 보내기! ');
-                
-                //console.log(result[0].u_div);   //2022/9/14 김민경  이게 안 나온다?
-                //console.log(result[0]);
     
                 if(result[0].u_div === 'p'){
                     //구분이 보호자일 경우
