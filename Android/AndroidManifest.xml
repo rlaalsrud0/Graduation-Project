@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.ollie">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 비콘 추가 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" /> <!-- android 12 add -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Ollie"
+        android:usesCleartextTraffic="true">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <service
+            android:name=".BeaconService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".PHelp"
+            android:enabled="true"
+            android:exported="true">
+            <!--
+            android:process=":remote"
+            -->
+        </service>
+
+        <service
+            android:name=".PHomeService"
+            android:enabled="true"
+            android:exported="true">
+
+        </service>
+
+        <activity
+            android:name=".Signup"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".PDevice"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".SignupMatching"
+            android:exported="true"
+            tools:ignore="Instantiatable" >
+
+        </activity>
+        <activity
+            android:name=".VSignupDetail"
+            android:exported="true" />
+        <activity
+            android:name=".PHome"
+            android:exported="true" />
+        <activity
+            android:name=".PMenuTime"
+            android:exported="true"
+            tools:ignore="Instantiatable" >
+
+        </activity>
+        <activity
+            android:name=".PMenu"
+            android:exported="true"
+            tools:ignore="Instantiatable"></activity>
+        <activity
+            android:name=".PMenuMypageUpdate"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            tools:ignore="Instantiatable" >
+
+        </activity>
+        <activity
+            android:name=".PasswdCheck"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".VMypageUpdate"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".VHelp"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+
+        </activity>
+        <activity
+            android:name=".VListPro"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".PMenuMypageListVul"
+            android:exported="true"
+            tools:ignore="Instantiatable" >
+
+        </activity>
+        <activity
+            android:name=".PMenuVideo"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".PMenuListUser"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".MypageDelete"
+            android:exported="true" />
+        <activity
+            android:name=".PMenuDeviceDelete"
+            android:exported="true" />
+        <activity
+            android:name=".PMenuDevicePasswd"
+            android:exported="true" />
+        <activity
+            android:name=".MypagePasswd"
+            android:exported="true" />
+        <activity
+            android:name=".PMenuMypage"
+            android:exported="true" />
+        <activity
+            android:name=".VMypage"
+            android:exported="true" />
+        <activity
+            android:name=".PNotify"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".PMenuOut"
+            android:exported="true" />
+        <activity
+            android:name=".PMenuSelectTime"
+            android:exported="true" >
+
+        </activity>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+    </application>
+
+</manifest>
